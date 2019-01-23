@@ -1,3 +1,5 @@
 table {
   width: 50%;
+  text-align: center;
+  border: solid gray;
 }

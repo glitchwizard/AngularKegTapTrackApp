@@ -7,13 +7,14 @@
 </div>
 
   <h3>Kegs on tap</h3>
-  <table>
+  <table class="table-bordered">
     <tr>
       <th>Brand</th>
       <th>Beer</th>
       <th>Price ($)</th>
       <th>ABV (%)</th>
       <th>Beer remaining (pints)</th>
+      <th>Beer Left</th>
       <th>Pour a beer</th>
       <th>Edit?</th>
     </tr>
@@ -23,6 +24,13 @@
       <td>{{ keg.price }}</td>
       <td>{{ keg.alcByVolume }}</td>
       <td>{{ keg.poursRemaining}}</td>
+      <td>
+        <div class="progress">
+          <!-- <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> -->
+          <div class="progress-bar" role="progressbar" [style.width.%]="keg.percentRemaining()" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </td>
       <td><button (click) = "pourOneOutForTheHomies(keg)">Pour a beer.</button></td>
       <td><button (click) = "editKeg(keg)">Edit</button></td>
     </tr>
