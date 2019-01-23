@@ -1,15 +1,22 @@
 class Keg {
+  public pintPrice : number = (Math.round(this.price/124 * 4 * 3 ) / 4).toFixed(2);
   public poursRemaining : number  = 124;
   public percentBeerRemaining : number = 0;
   constructor(public beerBrand: string, public beerName: string , public price: number, public alcByVolume: number){
 
   }
 
+  // pintPrice(){
+  //   this.pintPrice = this.price/124
+  //
+  //    // (Math.round(this.price/124 * 4) / 4).toFixed(2);
+  // }
+
   pourABeer(){
     this.poursRemaining--;
   }
 
-  percentRemaining(){     
+  percentRemaining(){
     return this.poursRemaining/124*100;
   }
 }

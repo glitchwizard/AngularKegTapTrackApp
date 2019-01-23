@@ -11,7 +11,7 @@
     <tr>
       <th>Brand</th>
       <th>Beer</th>
-      <th>Price ($)</th>
+      <th>Pint Price ($)</th>
       <th>ABV (%)</th>
       <th>Beer remaining (pints)</th>
       <th>Beer Left</th>
@@ -21,8 +21,8 @@
     <tr *ngFor="let keg of kegList">
       <td>{{ keg.beerBrand }} </td>
       <td>{{ keg.beerName }}</td>
-      <td>{{ keg.price }}</td>
-      <td>{{ keg.alcByVolume }}</td>
+      <td>${{ keg.pintPrice }}</td>
+      <td>{{ keg.alcByVolume }}%</td>
       <td>{{ keg.poursRemaining}}</td>
       <td>
         <div class="progress">
