@@ -13,20 +13,24 @@
       <th>Beer</th>
       <th>Price ($)</th>
       <th>ABV (%)</th>
+      <th>Beer remaining (pints)</th>
+      <th>Pour a beer</th>
       <th>Edit?</th>
     </tr>
     <tr *ngFor="let keg of kegList">
-      <td>{{ keg.beerBrand }}</td>
+      <td>{{ keg.beerBrand }} </td>
       <td>{{ keg.beerName }}</td>
       <td>{{ keg.price }}</td>
       <td>{{ keg.alcByVolume }}</td>
+      <td>{{ keg.poursRemaining}}</td>
+      <td><button (click) = "pourOneOutForTheHomies(keg)">Pour a beer.</button></td>
       <td><button (click) = "editKeg(keg)">Edit</button></td>
     </tr>
   </table>
 
   <button (click) = "createKeg()">Add a new Keg</button>
 
-  <div *ngIf = "selectedKeg">
+  <div *ngIf = "selectedKeg && pour == null">
     <h3>{{selectedKeg.beerBrand}}</h3>
     <p>Pours Remaining: {{selectedKeg.poursRemaining}}</p>
     <h3>Edit Keg Info:</h3>

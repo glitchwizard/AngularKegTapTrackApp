@@ -16,10 +16,11 @@ export class AppComponent {
    new Keg("Lagunitas", "Sucks", 250, 8.0),
   ];
   selectedKeg = null;
-  newKeg = null;
+  pour = null;
 
   editKeg(clickedKeg) {
     this.selectedKeg = clickedKeg;
+    this.pour = null;
   }
 
   createKeg(){
@@ -28,7 +29,14 @@ export class AppComponent {
 
   finishedEditing(){
   this.selectedKeg = null;
-  };
+  this.pour = null;
+  }
+
+  pourOneOutForTheHomies(clickedKeg){
+    this.pour = "pouring";
+    this.selectedKeg = clickedKeg;
+    this.selectedKeg.pourABeer();
+  }
 
 }
 }
