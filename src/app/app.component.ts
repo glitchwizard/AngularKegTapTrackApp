@@ -36,7 +36,7 @@ export class AppComponent {
     return Math.min(...tempArray);
   }
 
-  setBackgroundStyle(keg){
+  setCellBackgroundStyle(keg){
     let maxPrice = this.getMaxBeerPrice();
     let minPrice = this.getMinBeerPrice();
     if (((keg.pintPrice - minPrice)/(maxPrice - minPrice)) > .75){
@@ -46,7 +46,18 @@ export class AppComponent {
     } else {
       return 'orange';
     }
+  }
 
+  setRowBoldStyle(keg){
+    let maxPrice = this.getMaxBeerPrice();
+    let minPrice = this.getMinBeerPrice();
+    if (((keg.pintPrice - minPrice)/(maxPrice - minPrice)) > .75){
+      return 'bold';
+    } else if (((keg.pintPrice - minPrice)/(maxPrice - minPrice)) > .40){
+      return 'italic';
+    } else {
+      return 'underlined';
+    }
   }
 
   editKeg(clickedKeg) {
