@@ -21,12 +21,12 @@
     <tr *ngFor="let keg of kegList">
       <td>{{ keg.beerBrand }} </td>
       <td>{{ keg.beerName }}</td>
-      <td>${{ keg.pintPrice }}</td>
+      <!-- <td style="background-color:#FF00FF;">>${{ keg.pintPrice }}</td> -->
+      <td [style.backgroundColor]="this.setBackgroundStyle(keg)"><div style = "padding: 10px">${{ keg.pintPrice }}</div></td>
       <td>{{ keg.alcByVolume }}%</td>
       <td>{{ keg.poursRemaining}}</td>
       <td>
         <div class="progress">
-          <!-- <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> -->
           <div class="progress-bar" role="progressbar" [style.width.%]="keg.percentRemaining()" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
           </div>
         </div>

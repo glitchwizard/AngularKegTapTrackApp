@@ -6,12 +6,6 @@ class Keg {
 
   }
 
-  // pintPrice(){
-  //   this.pintPrice = this.price/124
-  //
-  //    // (Math.round(this.price/124 * 4) / 4).toFixed(2);
-  // }
-
   pourABeer(){
     this.poursRemaining--;
   }

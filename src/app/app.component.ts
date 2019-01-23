@@ -17,6 +17,37 @@ export class AppComponent {
   ];
   selectedKeg = null;
   pour = null;
+  maxBeerPrice = this.getMaxBeerPrice();
+  minBeerPrice = this.getMinBeerPrice();
+
+  getMaxBeerPrice(){
+    let tempArray = [];
+    this.kegList.forEach(function(keg){
+      tempArray.push(keg.pintPrice)
+    });
+    return Math.max(...tempArray);
+  }
+
+  getMinBeerPrice(){
+    let tempArray = [];
+    this.kegList.forEach(function(keg){
+      tempArray.push(keg.pintPrice)
+    });
+    return Math.min(...tempArray);
+  }
+
+  setBackgroundStyle(keg){
+    let maxPrice = this.getMaxBeerPrice();
+    let minPrice = this.getMinBeerPrice();
+    if (((keg.pintPrice - minPrice)/(maxPrice - minPrice)) > .75){
+      return 'Lightgreen';
+    } else if (((keg.pintPrice - minPrice)/(maxPrice - minPrice)) > .40){
+      return 'yellow';
+    } else {
+      return 'orange';
+    }
+
+  }
 
   editKeg(clickedKeg) {
     this.selectedKeg = clickedKeg;
